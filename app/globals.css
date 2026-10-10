@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Ziel Kids Club brand tokens (brand book 2 Okt 2026) ---- */
+  --color-sage-50: #f2f5ef;
+  --color-sage-100: #e2e9dc;
+  --color-sage-200: #c6d3b9;
+  --color-sage-300: #a3b891;
+  --color-sage-400: #829c6e;
+  --color-sage-500: #678052;
+  --color-sage-600: #51653f;
+  --color-sage-700: #425234;
+  --color-sage-800: #37432c;
+  --color-sage-900: #2e3826;
+
+  --color-mustard-50: #fdf8e7;
+  --color-mustard-100: #faeecb;
+  --color-mustard-200: #f5dd94;
+  --color-mustard-300: #efc65d;
+  --color-mustard-400: #e9ae36;
+  --color-mustard-500: #dd9420;
+  --color-mustard-600: #c07a1a;
+  --color-mustard-700: #9a5e18;
+
+  --color-terracotta-50: #fbf1ec;
+  --color-terracotta-100: #f6e0d3;
+  --color-terracotta-200: #edbfa3;
+  --color-terracotta-300: #e29a72;
+  --color-terracotta-400: #d67348;
+  --color-terracotta-500: #c65a30;
+  --color-terracotta-600: #a84826;
+  --color-terracotta-700: #86391f;
+
+  --color-cream-50: #fdfaf5;
+  --color-cream-100: #f7efe3;
+  --color-cream-200: #f1e4c8;
+  --color-cream-300: #e6d3ac;
+
+  --color-bark-500: #8a6d4b;
+  --color-bark-700: #4a3423;
+  --color-bark-800: #3a2a1c;
+  --color-bark-900: #2f241c;
+  --color-bark-950: #241b14;
+
+  --font-display: var(--font-lora), Georgia, serif;
+  --font-sans: var(--font-nunito-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --background: var(--color-cream-50);
+  --foreground: var(--color-bark-900);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+}
+
+/* Sembunyikan scrollbar untuk tab bar horizontal */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
