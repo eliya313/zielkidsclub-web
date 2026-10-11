@@ -7,6 +7,26 @@ import { useMemo, useState } from "react";
 import { Badge, Price, CtaButton, EmptyState } from "@/components/ui";
 import { EVENT_CATEGORIES } from "@/lib/site";
 import type { ZkcEvent } from "@/lib/api";
+import Image from "next/image";
+
+const CATEGORY_IMAGES: Record<ZkcEvent["category"], { src: string; alt: string }> = {
+  popup: {
+    src: "/illustrations/ilus-09.jpeg",
+    alt: "Anak-anak bermain parasut bersama di Pop Up Class",
+  },
+  talkshow: {
+    src: "/illustrations/ilus-03.jpeg",
+    alt: "Pembicara berbagi di depan para ibu pada Talkshow Parenting",
+  },
+  workshop: {
+    src: "/illustrations/ilus-02.jpeg",
+    alt: "Peserta berlatih aktivitas practical life di Workshop Montessori",
+  },
+  training: {
+    src: "/illustrations/ilus-05.jpeg",
+    alt: "Trainer mendampingi guru-guru muda pada Pelatihan Guru",
+  },
+};
 
 type CategoryFilter = "all" | (typeof EVENT_CATEGORIES)[number]["slug"];
 
@@ -151,7 +171,16 @@ export function EventFilter({ events }: { events: ZkcEvent[] }) {
         <ul className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           {visible.map((event) => (
             <li key={event.id}>
-              <article className="flex h-full flex-col rounded-3xl border border-bark-500/15 bg-white p-6 shadow-sm transition-shadow hover:shadow-md">
+              <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-bark-500/15 bg-white shadow-sm transition-shadow hover:shadow-md">
+                <div className="relative h-44 shrink-0">
+                  <Image
+                    src={CATEGORY_IMAGES[event.category].src}
+                    alt={CATEGORY_IMAGES[event.category].alt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-6">
                 <div className="flex flex-wrap items-center gap-2">
                   <Badge>{categoryLabel(event.category)}</Badge>
                 </div>
@@ -193,6 +222,7 @@ export function EventFilter({ events }: { events: ZkcEvent[] }) {
 
                 <div className="mt-auto pt-6">
                   <CtaButton href="/jadwal">Daftar</CtaButton>
+                </div>
                 </div>
               </article>
             </li>

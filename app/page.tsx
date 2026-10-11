@@ -207,19 +207,19 @@ export default async function Home() {
               </CtaButton>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-sm">
+          <div className="relative mx-auto w-full max-w-md">
             <div
               aria-hidden="true"
               className="absolute -inset-4 rounded-[3rem] bg-mustard-200/70 blur-2xl"
             />
-            <div className="relative rounded-[2.5rem] bg-white/80 p-10 shadow-xl ring-1 ring-bark-500/10">
+            <div className="relative overflow-hidden rounded-[2.5rem] shadow-xl ring-1 ring-bark-500/10">
               <Image
-                src="/logo-zkc.png"
-                alt="Logo Ziel Kids Club"
-                width={400}
-                height={400}
+                src="/illustrations/ilus-08.jpeg"
+                alt="Guru mendampingi anak-anak bermain dengan mainan kayu di kelas Ziel Kids Club yang hangat"
+                width={800}
+                height={600}
                 priority
-                className="h-auto w-full"
+                className="h-auto w-full object-cover"
               />
             </div>
             <div className="absolute -left-3 top-8 rounded-2xl bg-sage-600 px-4 py-2.5 text-xs font-bold text-white shadow-lg md:-left-8">
@@ -239,7 +239,16 @@ export default async function Home() {
             title="Bukan Sekadar Tempat Bermain"
             subtitle="Kami adalah pusat perkembangan anak yang bekerja dengan prinsip jelas: pahami dulu, baru dampingi."
           />
-          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+          <div className="relative mt-10 overflow-hidden rounded-3xl shadow-sm ring-1 ring-bark-500/10">
+            <Image
+              src="/illustrations/ilus-01.jpeg"
+              alt="Guru mendampingi tiga balita dalam aktivitas bermain sensori"
+              width={1200}
+              height={675}
+              className="h-56 w-full object-cover md:h-80"
+            />
+          </div>
+          <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
             <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-bark-500/10 md:col-span-2">
               <h3 className="font-display text-xl font-bold text-bark-900">
                 Bukan Daycare, Bukan Klinik Terapi

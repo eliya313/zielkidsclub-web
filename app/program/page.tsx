@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import {
   SectionHeading,
   CtaButton,
@@ -146,6 +147,14 @@ export default function ProgramPage() {
       {/* 2a. Trial Class */}
       <section className="mx-auto max-w-6xl px-5 py-10">
         <div className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-bark-500/15">
+          <div className="relative h-56 md:h-72">
+            <Image
+              src="/illustrations/ilus-07.jpeg"
+              alt="Balita menuang air ke gelas, aktivitas practical life Montessori"
+              fill
+              className="object-cover"
+            />
+          </div>
           <div className="grid grid-cols-1 gap-0 md:grid-cols-2">
             <div className="flex flex-col justify-center bg-mustard-100 p-8 md:p-12">
               <div className="flex items-center gap-3">
@@ -197,7 +206,16 @@ export default function ProgramPage() {
             title="Regular Class"
             subtitle="Kelas rutin dengan ritme belajar yang konsisten. Pilih paket sesuai kebutuhan keluarga, dan kami akan memetakan kebutuhan anak dari sesi ke sesi."
           />
-          <div className="mt-10 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start">
+          <div className="relative mt-10 overflow-hidden rounded-3xl shadow-sm ring-1 ring-bark-500/10">
+            <Image
+              src="/illustrations/ilus-09.jpeg"
+              alt="Anak-anak bermain bersama dengan riang di kelas"
+              width={1200}
+              height={600}
+              className="h-56 w-full object-cover md:h-72"
+            />
+          </div>
+          <div className="mt-8 grid grid-cols-1 gap-8 md:grid-cols-2 md:items-start">
             <div className="flex flex-col rounded-3xl bg-white p-8 shadow-sm ring-1 ring-bark-500/15">
               <div className="flex items-center gap-3">
                 <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-sage-600 text-white">
@@ -237,7 +255,16 @@ export default function ProgramPage() {
 
       {/* 2c. Pop Up Class / Playdate */}
       <section className="mx-auto max-w-6xl px-5 py-14">
-        <div className="rounded-3xl border-l-8 border-terracotta-500 bg-white p-8 shadow-sm ring-1 ring-bark-500/15 md:p-12">
+        <div className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-bark-500/15">
+          <div className="relative h-56 md:h-72">
+            <Image
+              src="/illustrations/ilus-01.jpeg"
+              alt="Anak-anak bermain sensori bersama dalam Pop Up Class"
+              fill
+              className="object-cover"
+            />
+          </div>
+          <div className="border-l-8 border-terracotta-500 p-8 md:p-12">
           <div className="flex items-center gap-3">
             <span className="flex h-12 w-12 items-center justify-center rounded-2xl bg-terracotta-100 text-terracotta-700">
               <IconSparkle className="h-6 w-6" />
@@ -288,6 +315,7 @@ export default function ProgramPage() {
           </div>
           <div className="mt-8">
             <CtaButton href="/jadwal">Daftar</CtaButton>
+          </div>
           </div>
         </div>
       </section>
