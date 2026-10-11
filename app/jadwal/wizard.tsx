@@ -884,7 +884,7 @@ export default function JadwalWizard({
 
               <figure className="mt-5">
                 <Image
-                  src="/brand/qris-zkc.jpg"
+                  src="/qris-zkc.jpg"
                   alt={`Kode QRIS ${SITE.name} untuk pembayaran pendaftaran`}
                   width={800}
                   height={800}

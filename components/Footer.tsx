@@ -21,7 +21,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <span className="inline-flex items-center rounded-full bg-cream-100 p-1.5">
                 <Image
-                  src="/brand/logo-zkc.png"
+                  src="/logo-zkc.png"
                   alt="Logo Ziel Kids Club"
                   width={44}
                   height={44}

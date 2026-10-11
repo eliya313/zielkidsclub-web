@@ -214,7 +214,7 @@ export default async function Home() {
             />
             <div className="relative rounded-[2.5rem] bg-white/80 p-10 shadow-xl ring-1 ring-bark-500/10">
               <Image
-                src="/brand/logo-zkc.png"
+                src="/logo-zkc.png"
                 alt="Logo Ziel Kids Club"
                 width={400}
                 height={400}

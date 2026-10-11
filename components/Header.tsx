@@ -26,7 +26,7 @@ export default function Header() {
         <Link href="/" className="flex items-center gap-3" aria-label="Ziel Kids Club - Beranda">
           <span className="inline-flex items-center rounded-full bg-cream-100 p-1.5">
             <Image
-              src="/brand/logo-zkc.png"
+              src="/logo-zkc.png"
               alt="Logo Ziel Kids Club"
               width={40}
               height={40}
