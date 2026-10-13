@@ -149,7 +149,7 @@ export default function ProgramPage() {
         <div className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-bark-500/15">
           <div className="relative h-56 md:h-72">
             <Image
-              src="/illustrations/ilus-07.jpeg"
+              src="/illustrations/ilus-07.jpg"
               alt="Balita menuang air ke gelas, aktivitas practical life Montessori"
               fill
               className="object-cover"
@@ -208,7 +208,7 @@ export default function ProgramPage() {
           />
           <div className="relative mt-10 overflow-hidden rounded-3xl shadow-sm ring-1 ring-bark-500/10">
             <Image
-              src="/illustrations/ilus-09.jpeg"
+              src="/illustrations/ilus-09.jpg"
               alt="Anak-anak bermain bersama dengan riang di kelas"
               width={1200}
               height={600}
@@ -258,7 +258,7 @@ export default function ProgramPage() {
         <div className="overflow-hidden rounded-3xl bg-white shadow-sm ring-1 ring-bark-500/15">
           <div className="relative h-56 md:h-72">
             <Image
-              src="/illustrations/ilus-01.jpeg"
+              src="/illustrations/ilus-01.jpg"
               alt="Anak-anak bermain sensori bersama dalam Pop Up Class"
               fill
               className="object-cover"

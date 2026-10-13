@@ -214,7 +214,7 @@ export default async function Home() {
             />
             <div className="relative overflow-hidden rounded-[2.5rem] shadow-xl ring-1 ring-bark-500/10">
               <Image
-                src="/illustrations/ilus-08.jpeg"
+                src="/illustrations/ilus-08.jpg"
                 alt="Guru mendampingi anak-anak bermain dengan mainan kayu di kelas Ziel Kids Club yang hangat"
                 width={800}
                 height={600}
@@ -241,7 +241,7 @@ export default async function Home() {
           />
           <div className="relative mt-10 overflow-hidden rounded-3xl shadow-sm ring-1 ring-bark-500/10">
             <Image
-              src="/illustrations/ilus-01.jpeg"
+              src="/illustrations/ilus-01.jpg"
               alt="Guru mendampingi tiga balita dalam aktivitas bermain sensori"
               width={1200}
               height={675}

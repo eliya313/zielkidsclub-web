@@ -11,19 +11,19 @@ import Image from "next/image";
 
 const CATEGORY_IMAGES: Record<ZkcEvent["category"], { src: string; alt: string }> = {
   popup: {
-    src: "/illustrations/ilus-09.jpeg",
+    src: "/illustrations/ilus-09.jpg",
     alt: "Anak-anak bermain parasut bersama di Pop Up Class",
   },
   talkshow: {
-    src: "/illustrations/ilus-03.jpeg",
+    src: "/illustrations/ilus-03.jpg",
     alt: "Pembicara berbagi di depan para ibu pada Talkshow Parenting",
   },
   workshop: {
-    src: "/illustrations/ilus-02.jpeg",
+    src: "/illustrations/ilus-02.jpg",
     alt: "Peserta berlatih aktivitas practical life di Workshop Montessori",
   },
   training: {
-    src: "/illustrations/ilus-05.jpeg",
+    src: "/illustrations/ilus-05.jpg",
     alt: "Trainer mendampingi guru-guru muda pada Pelatihan Guru",
   },
 };
