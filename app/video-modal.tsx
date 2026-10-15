@@ -31,28 +31,48 @@ export function VideoTestimonialCard({
   name,
   duration,
   quote,
+  theme,
 }: {
   name: string;
   duration: string;
   quote: string;
+  theme: {
+    card: string;
+    play: string;
+    mark: string;
+    chip: string;
+    radius: string;
+  };
 }) {
   const [open, setOpen] = useState(false);
 
   return (
     <>
-      <article className="flex flex-col rounded-3xl bg-cream-50 p-6 shadow-sm ring-1 ring-bark-500/10">
-        <button
-          type="button"
-          onClick={() => setOpen(true)}
-          aria-label={`Putar video testimoni dari ${name}`}
-          className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-terracotta-500 text-white transition hover:-translate-y-[1px] hover:bg-terracotta-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta-500"
-        >
-          <IconPlay className="h-6 w-6 translate-x-[1px]" />
-        </button>
-        <p className="line-clamp-3 text-sm leading-relaxed text-bark-800">{quote}</p>
+      <article
+        className={`flex flex-col p-6 shadow-sm ring-1 ${theme.card} ${theme.radius}`}
+      >
+        <div className="mb-2 flex items-start justify-between">
+          <span
+            aria-hidden="true"
+            className={`font-display text-6xl font-bold leading-none ${theme.mark}`}
+          >
+            &ldquo;
+          </span>
+          <button
+            type="button"
+            onClick={() => setOpen(true)}
+            aria-label={`Putar video testimoni dari ${name}`}
+            className={`flex h-14 w-14 items-center justify-center rounded-full text-white transition hover:-translate-y-[1px] focus-visible:outline-2 focus-visible:outline-offset-2 ${theme.play}`}
+          >
+            <IconPlay className="h-6 w-6 translate-x-[1px]" />
+          </button>
+        </div>
+        <p className="text-sm leading-relaxed text-bark-800">{quote}</p>
         <div className="mt-4 flex items-center justify-between gap-3 border-t border-bark-500/15 pt-4">
           <p className="font-bold text-bark-900">{name}</p>
-          <span className="shrink-0 rounded-full bg-sage-100 px-2.5 py-1 text-xs font-bold text-sage-700">
+          <span
+            className={`shrink-0 rounded-full px-2.5 py-1 text-xs font-bold ${theme.chip}`}
+          >
             {duration}
           </span>
         </div>

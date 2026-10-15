@@ -30,6 +30,21 @@ export const metadata: Metadata = {
       "Pusat perkembangan & pembelajaran awal untuk anak usia 6 bulan-6 tahun di Malang.",
     type: "website",
     locale: "id_ID",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Ziel Kids Club - Child Development & Early Learning Center Malang",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Ziel Kids Club",
+    description:
+      "Pusat perkembangan & pembelajaran awal untuk anak usia 6 bulan-6 tahun di Malang.",
+    images: ["/og-image.jpg"],
   },
 };
 

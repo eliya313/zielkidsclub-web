@@ -1,7 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Badge, CtaButton } from "@/components/ui";
-import { ARTICLE_CATEGORIES } from "@/lib/site";
+import { ARTICLE_CATEGORIES, ARTICLE_COVERS } from "@/lib/site";
 import { getArticle, getArticles } from "@/lib/api";
 import { formatDateId } from "@/lib/format";
 
@@ -79,6 +80,8 @@ export default async function ArticlePage({
     .filter((a) => a.category === article.category && a.slug !== article.slug)
     .slice(0, 3);
 
+  const cover = ARTICLE_COVERS[article.slug];
+
   return (
     <main className="bg-cream-50">
       <article className="mx-auto max-w-3xl px-4 py-12 md:py-16">
@@ -102,6 +105,19 @@ export default async function ArticlePage({
             </time>
           </p>
         </div>
+
+        {cover && (
+          <div className="relative mt-8 h-60 w-full overflow-hidden rounded-3xl shadow-sm ring-1 ring-bark-500/10 md:h-80">
+            <Image
+              src={cover.src}
+              alt={cover.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
+              priority
+            />
+          </div>
+        )}
 
         <div className="mt-8 space-y-5">
           {article.body.map((paragraph, i) => (

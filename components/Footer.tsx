@@ -98,15 +98,24 @@ export default function Footer() {
           <p>
             © 2026 Ziel Kids Club - bagian dari {SITE.yayasan}.
           </p>
-          <p>
-            Internal:{" "}
-            <Link href="/guru" className="underline hover:text-mustard-300">
-              Portal Guru
-            </Link>{" "}
-            ·{" "}
-            <Link href="/owner" className="underline hover:text-mustard-300">
-              Portal Owner
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <Link href="/kebijakan-privasi" className="underline hover:text-mustard-300">
+              Kebijakan Privasi
             </Link>
+            <Link href="/syarat-ketentuan" className="underline hover:text-mustard-300">
+              Syarat &amp; Ketentuan
+            </Link>
+            <span className="hidden md:inline">·</span>
+            <span>
+              Internal:{" "}
+              <Link href="/guru" className="underline hover:text-mustard-300">
+                Portal Guru
+              </Link>{" "}
+              ·{" "}
+              <Link href="/owner" className="underline hover:text-mustard-300">
+                Portal Owner
+              </Link>
+            </span>
           </p>
         </div>
       </div>

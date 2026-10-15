@@ -8,6 +8,21 @@ export const SITE = {
   yayasan: "Yayasan Tunas Pelita Cakrawala Insani",
 } as const;
 
+export const ARTICLE_COVERS: Record<string, { src: string; alt: string }> = {
+  "memahami-tantrum-anak": {
+    src: "/illustrations/ilus-09.jpg",
+    alt: "Ilustrasi keluarga bermain riang bersama di taman",
+  },
+  "stimulasi-motorik-kasar": {
+    src: "/illustrations/ilus-07.jpg",
+    alt: "Ilustrasi balita menuang air ke gelas dalam aktivitas practical life",
+  },
+  "prinsip-observe-first": {
+    src: "/illustrations/ilus-02.jpg",
+    alt: "Ilustrasi para pendidik melakukan aktivitas practical life Montessori",
+  },
+};
+
 export const waLink = (text: string) =>
   `https://wa.me/${SITE.waAdmin}?text=${encodeURIComponent(text)}`;
 

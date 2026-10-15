@@ -4,20 +4,31 @@ import Link from "next/link";
 export function SectionHeading({
   title,
   subtitle,
+  eyebrow,
   align = "center",
   dark = false,
 }: {
   title: string;
   subtitle?: string;
+  eyebrow?: string;
   align?: "center" | "left";
   dark?: boolean;
 }) {
   return (
     <div className={align === "center" ? "text-center" : "text-left"}>
+      {eyebrow && (
+        <p
+          className={`text-xs font-bold uppercase tracking-[0.18em] ${
+            dark ? "text-mustard-300" : "text-terracotta-600"
+          }`}
+        >
+          {eyebrow}
+        </p>
+      )}
       <h2
         className={`font-display text-3xl font-bold md:text-4xl ${
-          dark ? "text-cream-50" : "text-bark-900"
-        }`}
+          eyebrow ? "mt-3" : ""
+        } ${dark ? "text-cream-50" : "text-bark-900"}`}
       >
         {title}
       </h2>

@@ -12,10 +12,35 @@ import {
   waLink,
   EVENT_CATEGORIES,
   ARTICLE_CATEGORIES,
+  ARTICLE_COVERS,
   OBSERVATION_DOMAINS,
 } from "@/lib/site";
 import { getUpcomingEvents, getArticles } from "@/lib/api";
 import { VideoTestimonialCard } from "./video-modal";
+
+const VIDEO_THEMES = [
+  {
+    card: "bg-terracotta-50 ring-terracotta-500/15",
+    play: "bg-terracotta-500 hover:bg-terracotta-600 focus-visible:outline-terracotta-500",
+    mark: "text-terracotta-300",
+    chip: "bg-terracotta-100 text-terracotta-600",
+    radius: "rounded-3xl",
+  },
+  {
+    card: "bg-sage-100/70 ring-sage-500/15",
+    play: "bg-sage-600 hover:bg-sage-700 focus-visible:outline-sage-600",
+    mark: "text-sage-300",
+    chip: "bg-sage-200/70 text-sage-700",
+    radius: "rounded-tl-[2.25rem] rounded-tr-xl rounded-br-[2.25rem] rounded-bl-xl",
+  },
+  {
+    card: "bg-mustard-100/70 ring-mustard-500/20",
+    play: "bg-mustard-600 hover:bg-mustard-700 focus-visible:outline-mustard-600",
+    mark: "text-mustard-400",
+    chip: "bg-mustard-200/70 text-mustard-700",
+    radius: "rounded-[1.75rem]",
+  },
+];
 
 const VIDEO_TESTIMONIALS = [
   {
@@ -66,6 +91,9 @@ const PROGRAMS = [
     icon: (
       <path d="M12 3v3m0 12v3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1M3 12h3m12 0h3M5.6 18.4l2.1-2.1m8.6-8.6l2.1-2.1M12 8.5A3.5 3.5 0 1 0 12 15.5 3.5 3.5 0 0 0 12 8.5z" />
     ),
+    tile: "bg-terracotta-100 text-terracotta-600",
+    link: "text-terracotta-600",
+    radius: "rounded-3xl",
   },
   {
     title: "Regular Class",
@@ -73,6 +101,9 @@ const PROGRAMS = [
     icon: (
       <path d="M16 19v-1.5a2.5 2.5 0 0 0-2.5-2.5H6A2.5 2.5 0 0 0 3.5 17.5V19M6 11a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm11.5 8v-1.5a2.5 2.5 0 0 0-2.5-2.5h-1M14.5 4.6a3.5 3.5 0 0 1 0 6.8" />
     ),
+    tile: "bg-sage-100 text-sage-700",
+    link: "text-sage-700",
+    radius: "rounded-tl-[2.25rem] rounded-tr-xl rounded-br-[2.25rem] rounded-bl-xl",
   },
   {
     title: "Pop Up Class / Playdate",
@@ -80,6 +111,9 @@ const PROGRAMS = [
     icon: (
       <path d="M12 20.5S3.5 15.4 3.5 9.6A4.6 4.6 0 0 1 8.1 5c1.6 0 3 .9 3.9 2.2A4.6 4.6 0 0 1 15.9 5a4.6 4.6 0 0 1 4.6 4.6c0 5.8-8.5 10.9-8.5 10.9z" />
     ),
+    tile: "bg-mustard-100 text-mustard-700",
+    link: "text-mustard-700",
+    radius: "rounded-[1.75rem]",
   },
   {
     title: "Kelas Privat",
@@ -87,6 +121,9 @@ const PROGRAMS = [
     icon: (
       <path d="M12 3l2.7 5.6 6.1.8-4.5 4.2 1.1 6L12 16.7l-5.4 2.9 1.1-6L3.2 9.4l6.1-.8L12 3z" />
     ),
+    tile: "bg-cream-200 text-bark-700",
+    link: "text-bark-800",
+    radius: "rounded-tl-xl rounded-tr-[2.25rem] rounded-br-xl rounded-bl-[2.25rem]",
   },
 ];
 
@@ -178,7 +215,7 @@ export default async function Home() {
   return (
     <main>
       {/* 1. HERO */}
-      <section className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden bg-cream-50">
+      <section className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden bg-cream-50 lg:min-h-[calc(88svh-5rem)]">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-mustard-200/50"
@@ -233,7 +270,7 @@ export default async function Home() {
       </section>
 
       {/* 2. BENTO KEUNGGULAN */}
-      <section className="bg-cream-100 py-16 md:py-20">
+      <section className="bg-cream-100 py-14 md:py-16">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
             title="Bukan Sekadar Tempat Bermain"
@@ -250,7 +287,7 @@ export default async function Home() {
           </div>
           <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
             <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-bark-500/10 md:col-span-2">
-              <h3 className="font-display text-xl font-bold text-bark-900">
+              <h3 className="font-display text-2xl font-bold text-bark-900">
                 Bukan Daycare, Bukan Klinik Terapi
               </h3>
               <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-bark-700">
@@ -267,8 +304,8 @@ export default async function Home() {
                 kebutuhannya terlebih dahulu sebelum aktivitas disusun.
               </p>
             </div>
-            <div className="rounded-3xl bg-mustard-100 p-7 shadow-sm ring-1 ring-mustard-500/20 md:col-span-2">
-              <h3 className="font-display text-xl font-bold text-bark-900">
+            <div className="rounded-[1.75rem] bg-mustard-100 p-7 shadow-sm ring-1 ring-mustard-500/20 md:col-span-2">
+              <h3 className="font-display text-2xl font-bold text-bark-900">
                 9 Ranah Observasi
               </h3>
               <p className="mt-3 text-sm leading-relaxed text-bark-700">
@@ -299,24 +336,23 @@ export default async function Home() {
       </section>
 
       {/* 3. PROGRAM RINGKAS */}
-      <section className="bg-cream-50 py-16 md:py-20">
+      <section className="bg-cream-50 py-14 md:py-16">
         <div className="mx-auto max-w-6xl px-5">
-          <p className="text-center text-xs font-bold uppercase tracking-[0.18em] text-terracotta-600">
-            Pilihan Program
-          </p>
-          <div className="mt-3">
-            <SectionHeading
-              title="Program untuk Setiap Tahap"
-              subtitle="Pilih format yang paling cocok untuk anak dan jadwal keluarga Anda."
-            />
-          </div>
-          <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <SectionHeading
+            eyebrow="Pilihan Program"
+            align="left"
+            title="Program untuk Setiap Tahap"
+            subtitle="Pilih format yang paling cocok untuk anak dan jadwal keluarga Anda."
+          />
+          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
             {PROGRAMS.map((p) => (
               <article
                 key={p.title}
-                className="group flex flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-bark-500/10 transition hover:-translate-y-1 hover:shadow-md"
+                className={`group flex flex-col bg-white p-6 shadow-sm ring-1 ring-bark-500/10 transition hover:-translate-y-1 hover:shadow-md ${p.radius}`}
               >
-                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-sage-100 text-sage-700">
+                <div
+                  className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl ${p.tile}`}
+                >
                   <svg
                     viewBox="0 0 24 24"
                     className="h-6 w-6"
@@ -338,7 +374,7 @@ export default async function Home() {
                 </p>
                 <Link
                   href="/program"
-                  className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-terracotta-600 transition group-hover:gap-2.5"
+                  className={`mt-5 inline-flex items-center gap-1.5 text-sm font-bold transition group-hover:gap-2.5 ${p.link}`}
                   aria-label={`Lihat detail program ${p.title}`}
                 >
                   Lihat Program
@@ -351,7 +387,7 @@ export default async function Home() {
       </section>
 
       {/* 4. BAND EVENT TERDEKAT */}
-      <section className="bg-cream-50 pb-16 md:pb-20">
+      <section className="bg-cream-50 pb-12 md:pb-16">
         <div className="mx-auto max-w-6xl px-5">
           {evt ? (
             <div className="grid grid-cols-1 items-center gap-8 rounded-3xl bg-mustard-100 p-7 shadow-sm ring-1 ring-mustard-500/20 md:p-10 lg:grid-cols-[1fr_auto]">
@@ -394,19 +430,20 @@ export default async function Home() {
       </section>
 
       {/* 5. TESTIMONI VIDEO */}
-      <section className="bg-cream-100 py-16 md:py-20">
+      <section className="bg-cream-100 py-14 md:py-16">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
             title="Cerita dari Para Orang Tua"
             subtitle="Dengarkan pengalaman mereka membersamai anak di Ziel Kids Club."
           />
-          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
-            {VIDEO_TESTIMONIALS.map((v) => (
+          <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+            {VIDEO_TESTIMONIALS.map((v, i) => (
               <VideoTestimonialCard
                 key={v.name}
                 name={v.name}
                 duration={v.duration}
                 quote={v.quote}
+                theme={VIDEO_THEMES[i % VIDEO_THEMES.length]}
               />
             ))}
           </div>
@@ -414,20 +451,27 @@ export default async function Home() {
       </section>
 
       {/* 6. TESTIMONI TEKS (selingan gelap) */}
-      <section className="bg-bark-800 py-16 md:py-20">
+      <section className="bg-bark-800 py-14 md:py-16">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
             dark
+            eyebrow="Testimoni"
             title="Kata Mereka"
             subtitle="Cerita singkat dari orang tua yang mempercayakan buah hatinya kepada kami."
           />
-          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
-            {TEXT_TESTIMONIALS.map((t) => (
+          <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+            {TEXT_TESTIMONIALS.map((t, i) => (
               <figure
                 key={t.name}
-                className="flex flex-col rounded-3xl bg-bark-700/60 p-7 ring-1 ring-cream-50/10"
+                className={`flex flex-col bg-bark-700/60 p-7 ring-1 ring-cream-50/10 ${
+                  [
+                    "rounded-3xl",
+                    "rounded-tl-[2.25rem] rounded-tr-xl rounded-br-[2.25rem] rounded-bl-xl",
+                    "rounded-[1.75rem]",
+                  ][i % 3]
+                }`}
               >
-                <blockquote className="line-clamp-3 flex-1 text-sm leading-relaxed text-cream-100">
+                <blockquote className="flex-1 text-sm leading-relaxed text-cream-100">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
                 <figcaption className="mt-5 border-t border-cream-50/15 pt-4">
@@ -441,43 +485,66 @@ export default async function Home() {
       </section>
 
       {/* 7. ARTIKEL TERBARU */}
-      <section className="bg-cream-50 py-16 md:py-20">
+      <section className="bg-cream-50 py-14 md:py-16">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
             title="Artikel Terbaru"
             subtitle="Bacaan ringan seputar tumbuh kembang dan parenting dari tim kami."
           />
-          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
-            {articles.map((a) => (
-              <Link
-                key={a.slug}
-                href={`/artikel/${a.slug}`}
-                className="group flex flex-col rounded-3xl bg-white p-6 shadow-sm ring-1 ring-bark-500/10 transition hover:-translate-y-1 hover:shadow-md"
-              >
-                <Badge>{labelOf(ARTICLE_CATEGORIES, a.category)}</Badge>
-                <h3 className="mt-3 font-display text-lg font-bold leading-snug text-bark-900">
-                  {a.title}
-                </h3>
-                <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-bark-700">
-                  {a.excerpt}
-                </p>
-                <div className="mt-5 flex items-center justify-between border-t border-bark-500/15 pt-4">
-                  <span className="text-xs font-semibold text-bark-700">
-                    {formatTanggal(a.publishedAt)}
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-bold text-terracotta-600 transition group-hover:gap-2.5">
-                    Baca
-                    <IconArrow />
-                  </span>
-                </div>
-              </Link>
-            ))}
+          <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
+            {articles.map((a, i) => {
+              const cover = ARTICLE_COVERS[a.slug];
+              const radius = [
+                "rounded-3xl",
+                "rounded-[1.75rem]",
+                "rounded-tl-[2.25rem] rounded-tr-xl rounded-br-[2.25rem] rounded-bl-xl",
+              ][i % 3];
+              return (
+                <Link
+                  key={a.slug}
+                  href={`/artikel/${a.slug}`}
+                  className={`group flex flex-col overflow-hidden bg-white shadow-sm ring-1 ring-bark-500/10 transition hover:-translate-y-1 hover:shadow-md ${radius}`}
+                >
+                  {cover && (
+                    <div className="relative h-44 w-full shrink-0 overflow-hidden">
+                      <Image
+                        src={cover.src}
+                        alt={cover.alt}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                      />
+                    </div>
+                  )}
+                  <div className="flex flex-1 flex-col p-6">
+                    <Badge>
+                      {labelOf(ARTICLE_CATEGORIES, a.category)}
+                    </Badge>
+                    <h3 className="mt-3 font-display text-lg font-bold leading-snug text-bark-900">
+                      {a.title}
+                    </h3>
+                    <p className="mt-2 line-clamp-2 flex-1 text-sm leading-relaxed text-bark-700">
+                      {a.excerpt}
+                    </p>
+                    <div className="mt-5 flex items-center justify-between border-t border-bark-500/15 pt-4">
+                      <span className="text-xs font-semibold text-bark-700">
+                        {formatTanggal(a.publishedAt)}
+                      </span>
+                      <span className="inline-flex items-center gap-1.5 text-sm font-bold text-terracotta-600 transition group-hover:gap-2.5">
+                        Baca
+                        <IconArrow />
+                      </span>
+                    </div>
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* 8. CTA KERJASAMA */}
-      <section className="bg-cream-100 py-16 md:py-20">
+      <section className="bg-cream-100 py-14 md:py-16">
         <div className="mx-auto max-w-4xl px-5 text-center">
           <SectionHeading
             title="Mari Berkolaborasi"

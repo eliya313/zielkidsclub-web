@@ -2,8 +2,9 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Badge, EmptyState } from "@/components/ui";
-import { ARTICLE_CATEGORIES } from "@/lib/site";
+import { ARTICLE_CATEGORIES, ARTICLE_COVERS } from "@/lib/site";
 import { formatDateId } from "@/lib/format";
 import type { Article } from "@/lib/api";
 
@@ -169,31 +170,47 @@ export default function ArticleFilter({ articles }: { articles: Article[] }) {
         </div>
       ) : (
         <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filtered.map((a) => (
-            <Link
-              key={a.slug}
-              href={`/artikel/${a.slug}`}
-              className="group flex flex-col rounded-2xl border border-bark-500/20 bg-white p-6 transition-all hover:-translate-y-1 hover:border-sage-500/50 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sage-600/40"
-            >
-              <Badge>{categoryLabel(a.category)}</Badge>
-              <h3 className="font-display mt-4 text-xl font-bold leading-snug text-bark-900 group-hover:text-sage-700">
-                {a.title}
-              </h3>
-              <p className="mt-2 flex-1 text-sm leading-relaxed text-bark-700">
-                {a.excerpt}
-              </p>
-              <div className="mt-4 flex items-center justify-between text-xs text-bark-600">
-                <span className="inline-flex items-center gap-1.5">
-                  <CalendarIcon />
-                  {formatDateId(a.publishedAt)}
-                </span>
-                <span className="inline-flex items-center gap-1 font-bold text-terracotta-600">
-                  Baca
-                  <ArrowIcon />
-                </span>
-              </div>
-            </Link>
-          ))}
+          {filtered.map((a) => {
+            const cover = ARTICLE_COVERS[a.slug];
+            return (
+              <Link
+                key={a.slug}
+                href={`/artikel/${a.slug}`}
+                className="group flex flex-col overflow-hidden rounded-2xl border border-bark-500/20 bg-white transition-all hover:-translate-y-1 hover:border-sage-500/50 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-sage-600/40"
+              >
+                {cover && (
+                  <div className="relative h-40 w-full shrink-0 overflow-hidden">
+                    <Image
+                      src={cover.src}
+                      alt={cover.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    />
+                  </div>
+                )}
+                <div className="flex flex-1 flex-col p-6">
+                  <Badge>{categoryLabel(a.category)}</Badge>
+                  <h3 className="font-display mt-4 text-xl font-bold leading-snug text-bark-900 group-hover:text-sage-700">
+                    {a.title}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-bark-700">
+                    {a.excerpt}
+                  </p>
+                  <div className="mt-4 flex items-center justify-between text-xs text-bark-600">
+                    <span className="inline-flex items-center gap-1.5">
+                      <CalendarIcon />
+                      {formatDateId(a.publishedAt)}
+                    </span>
+                    <span className="inline-flex items-center gap-1 font-bold text-terracotta-600">
+                      Baca
+                      <ArrowIcon />
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>
