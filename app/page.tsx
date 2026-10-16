@@ -17,6 +17,7 @@ import {
 } from "@/lib/site";
 import { getUpcomingEvents, getArticles } from "@/lib/api";
 import { VideoTestimonialCard } from "./video-modal";
+import JsonLd from "@/components/JsonLd";
 
 const VIDEO_THEMES = [
   {
@@ -212,8 +213,33 @@ export default async function Home() {
   const evt = evts[0];
   const articles = (await getArticles()).slice(0, 3);
 
+  const orgSchema = {
+    "@context": "https://schema.org",
+    "@type": "ChildCare",
+    "@id": "https://zielkidsclub.com/#organisasi",
+    name: "Ziel Kids Club",
+    description:
+      "Pusat perkembangan dan pembelajaran awal untuk anak usia 6 bulan hingga 6 tahun di Malang. Program: Trial Class, Regular Class, Pop Up Class/Playdate, dan Privat dengan pendekatan Montessori.",
+    url: "https://zielkidsclub.com/",
+    logo: "https://zielkidsclub.com/logo-zkc.png",
+    image: "https://zielkidsclub.com/illustrations/ilus-08.jpg",
+    telephone: "+62-851-1762-3313",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Malang",
+      addressRegion: "Jawa Timur",
+      addressCountry: "ID",
+    },
+    sameAs: [SITE.instagram, SITE.threads],
+    parentOrganization: {
+      "@type": "Organization",
+      name: SITE.yayasan,
+    },
+  };
+
   return (
     <main>
+      <JsonLd data={orgSchema} />
       {/* 1. HERO */}
       <section className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden bg-cream-50 lg:min-h-[calc(88svh-5rem)]">
         <div

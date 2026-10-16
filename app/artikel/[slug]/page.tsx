@@ -5,6 +5,7 @@ import { Badge, CtaButton } from "@/components/ui";
 import { ARTICLE_CATEGORIES, ARTICLE_COVERS } from "@/lib/site";
 import { getArticle, getArticles } from "@/lib/api";
 import { formatDateId } from "@/lib/format";
+import JsonLd from "@/components/JsonLd";
 
 export async function generateStaticParams() {
   const articles = await getArticles();
@@ -82,8 +83,33 @@ export default async function ArticlePage({
 
   const cover = ARTICLE_COVERS[article.slug];
 
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: article.title,
+    description: article.excerpt,
+    datePublished: article.publishedAt,
+    inLanguage: "id-ID",
+    author: {
+      "@type": "Organization",
+      name: "Ziel Kids Club",
+      url: "https://zielkidsclub.com/",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Ziel Kids Club",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://zielkidsclub.com/logo-zkc.png",
+      },
+    },
+    mainEntityOfPage: `https://zielkidsclub.com/artikel/${article.slug}`,
+    ...(cover ? { image: `https://zielkidsclub.com${cover.src}` } : {}),
+  };
+
   return (
     <main className="bg-cream-50">
+      <JsonLd data={articleSchema} />
       <article className="mx-auto max-w-3xl px-4 py-12 md:py-16">
         <Link
           href="/artikel"

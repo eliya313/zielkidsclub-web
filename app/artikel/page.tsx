@@ -1,6 +1,13 @@
+import type { Metadata } from "next";
 import { SectionHeading } from "@/components/ui";
 import { getArticles } from "@/lib/api";
 import ArticleFilter from "./article-filter";
+
+export const metadata: Metadata = {
+  title: "Artikel Parenting & Tumbuh Kembang Anak",
+  description:
+    "Artikel parenting, stimulasi tumbuh kembang, dan pendekatan Montessori untuk anak usia dini dari tim Ziel Kids Club Malang.",
+};
 
 export default async function ArtikelPage() {
   const articles = await getArticles();

@@ -8,6 +8,7 @@ import {
 } from "@/components/ui";
 import { OBSERVATION_DOMAINS } from "@/lib/site";
 import PackagePicker from "./package-picker";
+import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
   title: "Program",
@@ -129,6 +130,39 @@ function IconCheck(props: { className?: string }) {
 }
 
 export default function ProgramPage() {
+  const faqs = [
+    {
+      q: "Usia berapa anak bisa mengikuti program di Ziel Kids Club?",
+      a: "Program kami terbuka untuk anak usia 6 bulan hingga 6 tahun. Setiap kelompok usia mendapat aktivitas yang disesuaikan dengan tahap perkembangannya.",
+    },
+    {
+      q: "Di mana lokasi Ziel Kids Club?",
+      a: "Ziel Kids Club berlokasi di Malang, Jawa Timur. Alamat lengkap dan petunjuk arah diberikan admin saat pendaftaran.",
+    },
+    {
+      q: "Bagaimana cara mendaftar Trial Class?",
+      a: "Pendaftaran dilakukan lewat halaman Jadwal di website ini dalam 4 langkah: pilih jenis kelas, pilih sesi, isi data anak dan orang tua, lalu konfirmasi pembayaran via WhatsApp ke admin.",
+    },
+    {
+      q: "Apakah orang tua boleh ikut mendampingi di kelas?",
+      a: "Pada Pop Up Class / Playdate, orang tua ikut bermain bersama anak. Untuk Trial Class dan Regular Class, mekanisme pendampingan dijelaskan admin saat pendaftaran.",
+    },
+    {
+      q: "Berapa biaya programnya?",
+      a: "Biaya berbeda untuk tiap program dan event. Hubungi admin via WhatsApp di +62-851-1762-3313 untuk info biaya terkini.",
+    },
+  ];
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <div className="bg-cream-50">
       {/* 1. Header halaman */}
@@ -412,6 +446,29 @@ export default function ProgramPage() {
             memastikan anak merasa aman serta teregulasi sebelum diajak
             belajar hal akademis.
           </p>
+        </div>
+      </section>
+
+      <JsonLd data={faqSchema} />
+
+      {/* 4b. FAQ */}
+      <section className="mx-auto max-w-4xl px-5 py-14">
+        <SectionHeading
+          title="Pertanyaan yang sering ditanyakan"
+          subtitle="Jawaban singkat untuk hal-hal yang paling sering ditanyakan orang tua."
+        />
+        <div className="mt-8 space-y-4">
+          {faqs.map((f) => (
+            <details
+              key={f.q}
+              className="group rounded-2xl bg-white p-5 shadow-sm ring-1 ring-bark-500/10"
+            >
+              <summary className="cursor-pointer font-bold text-bark-900 marker:text-terracotta-600">
+                {f.q}
+              </summary>
+              <p className="mt-3 text-sm leading-relaxed text-bark-700">{f.a}</p>
+            </details>
+          ))}
         </div>
       </section>
 
