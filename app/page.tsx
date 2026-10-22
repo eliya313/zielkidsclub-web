@@ -241,100 +241,100 @@ export default async function Home() {
     <main>
       <JsonLd data={orgSchema} />
       {/* 1. HERO */}
-      <section className="relative flex min-h-[calc(100svh-5rem)] items-center overflow-hidden bg-cream-50 lg:min-h-[calc(88svh-5rem)]">
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -left-24 -top-24 h-72 w-72 rounded-full bg-mustard-200/50"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute -bottom-28 -right-20 h-80 w-80 rounded-full bg-sage-200/40"
-        />
-        <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-10 px-5 py-12 md:py-16 lg:grid-cols-2 lg:gap-14">
+      <section className="texture-paper relative overflow-hidden bg-cream-50">
+        <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-10 pt-12 md:pt-16 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.18em] text-terracotta-600">
               Child Development &amp; Early Learning Center - Malang
             </p>
-            <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-bark-900 md:text-5xl">
-              Anak Tumbuh Bahagia Sejak Dini
+            <h1 className="mt-5 font-display text-4xl font-bold leading-[1.15] text-bark-900 md:text-[3.4rem] md:leading-[1.08]">
+              Anak Tumbuh <em className="text-terracotta-600">Bahagia</em>{" "}
+              Sejak Dini
             </h1>
-            <p className="mt-4 max-w-[46ch] text-base leading-relaxed text-bark-700">
-              Ruang hangat untuk anak usia 6 bulan hingga 6 tahun belajar,
-              bermain, dan berkembang sesuai ritmenya, didampingi tim
-              berpengalaman.
+            <p className="mt-5 max-w-[46ch] text-base leading-relaxed text-bark-700 md:text-lg">
+              Ruang hangat untuk anak 6 bulan hingga 6 tahun belajar dan
+              bermain sesuai ritmenya, didampingi tim berpengalaman.
             </p>
-            <div className="mt-7 flex flex-wrap gap-3">
-              <CtaButton href="/jadwal">Daftar Trial Class</CtaButton>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <CtaButton href="/jadwal">Daftar Sekarang</CtaButton>
               <CtaButton href="/program" variant="outline">
                 Lihat Program
               </CtaButton>
             </div>
           </div>
-          <div className="relative mx-auto w-full max-w-md">
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
             <div
               aria-hidden="true"
-              className="absolute -inset-4 rounded-[3rem] bg-mustard-200/70 blur-2xl"
+              className="absolute inset-0 translate-x-4 translate-y-4 rounded-sm bg-mustard-300"
             />
-            <div className="relative overflow-hidden rounded-[2.5rem] shadow-xl ring-1 ring-bark-500/10">
-              <Image
-                src="/illustrations/ilus-08.jpg"
-                alt="Guru mendampingi anak-anak bermain dengan mainan kayu di kelas Ziel Kids Club yang hangat"
-                width={800}
-                height={600}
-                priority
-                className="h-auto w-full object-cover"
-              />
+            <div className="relative -rotate-1 rounded-sm bg-white p-2.5 pb-3 shadow-md ring-1 ring-bark-500/10">
+              <div className="relative overflow-hidden rounded-[2px]">
+                <Image
+                  src="/illustrations/ilus-08.jpg"
+                  alt="Guru mendampingi anak-anak bermain dengan mainan kayu di kelas Ziel Kids Club yang hangat"
+                  width={800}
+                  height={600}
+                  priority
+                  className="h-auto w-full object-cover"
+                />
+              </div>
+              <p className="px-1.5 pb-1 pt-3 font-display text-sm italic text-bark-700">
+                Bermain, bereksplorasi, bertumbuh. Setiap hari di Ziel Kids
+                Club.
+              </p>
             </div>
-            <div className="absolute -left-3 top-8 rounded-2xl bg-sage-600 px-4 py-2.5 text-xs font-bold text-white shadow-lg md:-left-8">
+            <div className="absolute -left-3 -top-4 -rotate-6 rounded-full bg-sage-600 px-4 py-2 text-xs font-bold text-white shadow-md md:-left-6">
               Usia 6 bln - 6 thn
             </div>
-            <div className="absolute -right-3 bottom-8 rounded-2xl bg-terracotta-500 px-4 py-2.5 text-xs font-bold text-white shadow-lg md:-right-8">
-              Observe First
-            </div>
           </div>
+        </div>
+        <div className="relative mx-auto max-w-6xl px-5 pb-12">
+          <ul className="flex flex-wrap items-center gap-x-3 gap-y-2 border-t border-bark-500/20 pt-5 text-sm font-semibold text-bark-700">
+            <li>Malang, Jawa Timur</li>
+            <li aria-hidden="true" className="text-terracotta-500">•</li>
+            <li>Pendekatan Montessori</li>
+            <li aria-hidden="true" className="text-terracotta-500">•</li>
+            <li>Observasi 9 ranah perkembangan</li>
+            <li aria-hidden="true" className="text-terracotta-500">•</li>
+            <li>Laporan berkala untuk orang tua</li>
+          </ul>
         </div>
       </section>
 
       {/* 2. BENTO KEUNGGULAN */}
-      <section className="bg-cream-100 py-14 md:py-16">
+      <section className="bg-cream-100 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
+            align="left"
             title="Bukan Sekadar Tempat Bermain"
             subtitle="Kami adalah pusat perkembangan anak yang bekerja dengan prinsip jelas: pahami dulu, baru dampingi."
           />
-          <div className="relative mt-10 overflow-hidden rounded-3xl shadow-sm ring-1 ring-bark-500/10">
-            <Image
-              src="/illustrations/ilus-01.jpg"
-              alt="Guru mendampingi tiga balita dalam aktivitas bermain sensori"
-              width={1200}
-              height={675}
-              className="h-56 w-full object-cover md:h-80"
-            />
-          </div>
-          <div className="mt-5 grid grid-cols-1 gap-5 md:grid-cols-3">
-            <div className="rounded-3xl bg-white p-7 shadow-sm ring-1 ring-bark-500/10 md:col-span-2">
+          <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-3">
+            <div className="reveal rounded-[1.25rem] bg-white p-7 shadow-sm ring-1 ring-bark-500/10 md:col-span-2 md:p-8">
               <h3 className="font-display text-2xl font-bold text-bark-900">
                 Bukan Daycare, Bukan Klinik Terapi
               </h3>
-              <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-bark-700">
+              <p className="mt-3 max-w-[60ch] text-sm leading-relaxed text-bark-700 md:text-base">
                 Ziel Kids Club adalah pusat perkembangan anak, bukan tempat
                 penitipan biasa dan bukan klinik terapi. Fokus kami sederhana:
                 memahami anak lewat observasi yang cermat, lalu mendampingi
                 dengan aktivitas yang tepat untuk tahap perkembangannya.
               </p>
             </div>
-            <div className="rounded-3xl bg-sage-600 p-7 text-white shadow-sm">
-              <h3 className="font-display text-xl font-bold">Observe First</h3>
-              <p className="mt-3 text-sm leading-relaxed text-sage-100">
-                Sebelum merespons, kami mengamati. Setiap anak dipetakan
-                kebutuhannya terlebih dahulu sebelum aktivitas disusun.
-              </p>
+            <div className="reveal relative min-h-52 overflow-hidden rounded-[1.25rem] shadow-sm ring-1 ring-bark-500/10">
+              <Image
+                src="/illustrations/ilus-01.jpg"
+                alt="Guru mendampingi tiga balita dalam aktivitas bermain sensori"
+                fill
+                sizes="(max-width: 768px) 100vw, 33vw"
+                className="object-cover"
+              />
             </div>
-            <div className="rounded-[1.75rem] bg-mustard-100 p-7 shadow-sm ring-1 ring-mustard-500/20 md:col-span-2">
+            <div className="reveal rounded-[1.25rem] bg-mustard-100 p-7 shadow-sm ring-1 ring-mustard-500/20 md:col-span-2 md:p-8">
               <h3 className="font-display text-2xl font-bold text-bark-900">
                 9 Ranah Observasi
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-bark-700">
+              <p className="mt-3 text-sm leading-relaxed text-bark-700 md:text-base">
                 Observasi kami mencakup sembilan ranah perkembangan anak:
               </p>
               <ul className="mt-4 flex flex-wrap gap-2">
@@ -348,11 +348,18 @@ export default async function Home() {
                 ))}
               </ul>
             </div>
-            <div className="rounded-3xl bg-terracotta-50 p-7 shadow-sm ring-1 ring-terracotta-500/15">
-              <h3 className="font-display text-xl font-bold text-bark-900">
+            <div className="reveal rounded-[1.25rem] bg-sage-600 p-7 text-white shadow-sm md:p-8">
+              <h3 className="font-display text-xl font-bold">Observe First</h3>
+              <p className="mt-3 text-sm leading-relaxed text-sage-100">
+                Sebelum merespons, kami mengamati. Setiap anak dipetakan
+                kebutuhannya terlebih dahulu sebelum aktivitas disusun.
+              </p>
+            </div>
+            <div className="reveal rounded-[1.25rem] bg-white p-7 shadow-sm ring-1 ring-bark-500/10 md:col-span-3 md:flex md:items-center md:gap-8 md:p-8">
+              <h3 className="font-display text-xl font-bold text-bark-900 md:shrink-0 md:text-2xl">
                 Pendampingan Terarah
               </h3>
-              <p className="mt-3 text-sm leading-relaxed text-bark-700">
+              <p className="mt-3 text-sm leading-relaxed text-bark-700 md:mt-0 md:text-base">
                 Hasil observasi menjadi acuan aktivitas tiap anak. Orang tua
                 mendapat laporan berkala tentang perkembangannya.
               </p>
@@ -362,52 +369,85 @@ export default async function Home() {
       </section>
 
       {/* 3. PROGRAM RINGKAS */}
-      <section className="bg-cream-50 py-14 md:py-16">
+      <section className="texture-paper bg-cream-50 py-16 md:py-24">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
-            eyebrow="Pilihan Program"
             align="left"
             title="Program untuk Setiap Tahap"
             subtitle="Pilih format yang paling cocok untuk anak dan jadwal keluarga Anda."
           />
-          <div className="mt-8 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {PROGRAMS.map((p) => (
-              <article
-                key={p.title}
-                className={`group flex flex-col bg-white p-6 shadow-sm ring-1 ring-bark-500/10 transition hover:-translate-y-1 hover:shadow-md ${p.radius}`}
+          <div className="mt-10 grid grid-cols-1 gap-10 lg:grid-cols-5 lg:gap-14">
+            <article className="reveal lg:col-span-2">
+              <div className="relative overflow-hidden rounded-[1.25rem] shadow-sm ring-1 ring-bark-500/10">
+                <Image
+                  src="/illustrations/ilus-07.jpg"
+                  alt="Balita menuang air ke gelas dalam aktivitas practical life Montessori"
+                  width={800}
+                  height={500}
+                  className="h-52 w-full object-cover lg:h-60"
+                />
+                <span className="absolute left-4 top-4 rounded-full bg-terracotta-500 px-3 py-1 text-xs font-bold text-white shadow">
+                  Mulai dari sini
+                </span>
+              </div>
+              <h3 className="mt-5 font-display text-2xl font-bold text-bark-900">
+                Trial Class
+              </h3>
+              <p className="mt-2 max-w-[48ch] text-sm leading-relaxed text-bark-700 md:text-base">
+                Sesi perkenalan 60 menit untuk merasakan suasana kelas sebelum
+                bergabung. Cara paling aman untuk melihat kecocokan anak
+                dengan lingkungan dan guru kami.
+              </p>
+              <Link
+                href="/jadwal"
+                className="mt-4 inline-flex items-center gap-1.5 text-sm font-bold text-terracotta-600 transition hover:gap-2.5"
               >
-                <div
-                  className={`mb-4 flex h-12 w-12 items-center justify-center rounded-2xl ${p.tile}`}
+                Daftar Sekarang
+                <IconArrow />
+              </Link>
+            </article>
+            <div className="lg:col-span-3">
+              {PROGRAMS.slice(1).map((prog, i) => (
+                <article
+                  key={prog.title}
+                  className="reveal group flex items-start gap-5 border-t border-bark-500/20 py-6 transition-colors first:border-t-0 first:pt-0 hover:bg-cream-100/60 lg:px-3"
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    className="h-6 w-6"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth={1.8}
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    aria-hidden="true"
+                  <span className="font-display text-lg font-bold text-terracotta-500">
+                    {String(i + 2).padStart(2, "0")}
+                  </span>
+                  <div className="flex-1">
+                    <h3 className="font-display text-xl font-bold text-bark-900">
+                      {prog.title}
+                    </h3>
+                    <p className="mt-1.5 max-w-[52ch] text-sm leading-relaxed text-bark-700">
+                      {prog.desc}
+                    </p>
+                  </div>
+                  <Link
+                    href="/program"
+                    className="mt-1 inline-flex shrink-0 items-center gap-1.5 text-sm font-bold text-sage-700 transition group-hover:gap-2.5"
+                    aria-label={`Lihat detail program ${prog.title}`}
                   >
-                    {p.icon}
-                  </svg>
-                </div>
-                <h3 className="font-display text-lg font-bold text-bark-900">
-                  {p.title}
-                </h3>
-                <p className="mt-2 flex-1 text-sm leading-relaxed text-bark-700">
-                  {p.desc}
-                </p>
-                <Link
-                  href="/program"
-                  className={`mt-5 inline-flex items-center gap-1.5 text-sm font-bold transition group-hover:gap-2.5 ${p.link}`}
-                  aria-label={`Lihat detail program ${p.title}`}
+                    <span className="hidden sm:inline">Detail</span>
+                    <IconArrow />
+                  </Link>
+                </article>
+              ))}
+              <p className="mt-2 border-t border-bark-500/20 pt-5 text-sm text-bark-700 lg:px-3">
+                Belum yakin program mana yang cocok?{" "}
+                <a
+                  href={waLink(
+                    "Halo Ziel Kids Club, saya ingin konsultasi program yang cocok untuk anak saya."
+                  )}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-bold text-terracotta-600 underline decoration-terracotta-300 underline-offset-4 hover:decoration-terracotta-600"
                 >
-                  Lihat Program
-                  <IconArrow />
-                </Link>
-              </article>
-            ))}
+                  Tanya admin lewat WhatsApp
+                </a>
+                , gratis.
+              </p>
+            </div>
           </div>
         </div>
       </section>
@@ -416,7 +456,7 @@ export default async function Home() {
       <section className="bg-cream-50 pb-12 md:pb-16">
         <div className="mx-auto max-w-6xl px-5">
           {evt ? (
-            <div className="grid grid-cols-1 items-center gap-8 rounded-3xl bg-mustard-100 p-7 shadow-sm ring-1 ring-mustard-500/20 md:p-10 lg:grid-cols-[1fr_auto]">
+            <div className="grid grid-cols-1 items-center gap-8 rounded-[1.25rem] bg-mustard-100 p-7 shadow-sm ring-1 ring-mustard-500/20 md:p-10 lg:grid-cols-[1fr_auto]">
               <div>
                 <Badge>{labelOf(EVENT_CATEGORIES, evt.category)}</Badge>
                 <h2 className="mt-3 font-display text-2xl font-bold text-bark-900 md:text-3xl">
@@ -440,7 +480,7 @@ export default async function Home() {
                 </p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <CtaButton href="/jadwal">Daftar</CtaButton>
+                <CtaButton href="/jadwal">Daftar Sekarang</CtaButton>
                 <CtaButton href="/event" variant="outline">
                   Lihat Semua Event
                 </CtaButton>
@@ -459,6 +499,7 @@ export default async function Home() {
       <section className="bg-cream-100 py-14 md:py-16">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
+            align="left"
             title="Cerita dari Para Orang Tua"
             subtitle="Dengarkan pengalaman mereka membersamai anak di Ziel Kids Club."
           />
@@ -477,32 +518,42 @@ export default async function Home() {
       </section>
 
       {/* 6. TESTIMONI TEKS (selingan gelap) */}
-      <section className="bg-bark-800 py-14 md:py-16">
+      <section className="bg-bark-800 py-16 md:py-20">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
             dark
-            eyebrow="Testimoni"
+            align="left"
             title="Kata Mereka"
             subtitle="Cerita singkat dari orang tua yang mempercayakan buah hatinya kepada kami."
           />
-          <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
-            {TEXT_TESTIMONIALS.map((t, i) => (
-              <figure
-                key={t.name}
-                className={`flex flex-col bg-bark-700/60 p-7 ring-1 ring-cream-50/10 ${
-                  [
-                    "rounded-3xl",
-                    "rounded-tl-[2.25rem] rounded-tr-xl rounded-br-[2.25rem] rounded-bl-xl",
-                    "rounded-[1.75rem]",
-                  ][i % 3]
-                }`}
-              >
-                <blockquote className="flex-1 text-sm leading-relaxed text-cream-100">
+          <figure className="reveal mt-10 max-w-3xl">
+            <span
+              aria-hidden="true"
+              className="font-display text-6xl font-bold leading-none text-mustard-400"
+            >
+              &ldquo;
+            </span>
+            <blockquote className="mt-1 font-display text-2xl font-medium leading-snug text-cream-50 md:text-[1.8rem]">
+              {TEXT_TESTIMONIALS[0].quote}
+            </blockquote>
+            <figcaption className="mt-5">
+              <p className="font-bold text-cream-50">
+                {TEXT_TESTIMONIALS[0].name}
+              </p>
+              <p className="mt-0.5 text-sm text-cream-200">
+                {TEXT_TESTIMONIALS[0].role}
+              </p>
+            </figcaption>
+          </figure>
+          <div className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-12">
+            {TEXT_TESTIMONIALS.slice(1).map((t) => (
+              <figure key={t.name} className="reveal border-t border-cream-50/15 pt-6">
+                <blockquote className="text-base leading-relaxed text-cream-100">
                   &ldquo;{t.quote}&rdquo;
                 </blockquote>
-                <figcaption className="mt-5 border-t border-cream-50/15 pt-4">
+                <figcaption className="mt-4">
                   <p className="font-bold text-cream-50">{t.name}</p>
-                  <p className="mt-1 text-xs text-cream-200">{t.role}</p>
+                  <p className="mt-0.5 text-xs text-cream-200">{t.role}</p>
                 </figcaption>
               </figure>
             ))}
@@ -513,23 +564,28 @@ export default async function Home() {
       {/* 7. ARTIKEL TERBARU */}
       <section className="bg-cream-50 py-14 md:py-16">
         <div className="mx-auto max-w-6xl px-5">
-          <SectionHeading
-            title="Artikel Terbaru"
-            subtitle="Bacaan ringan seputar tumbuh kembang dan parenting dari tim kami."
-          />
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <SectionHeading
+              align="left"
+              title="Artikel Terbaru"
+              subtitle="Bacaan ringan seputar tumbuh kembang dan parenting dari tim kami."
+            />
+            <Link
+              href="/artikel"
+              className="inline-flex items-center gap-1.5 pb-1 text-sm font-bold text-terracotta-600 transition hover:gap-2.5"
+            >
+              Semua artikel
+              <IconArrow />
+            </Link>
+          </div>
           <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-3">
-            {articles.map((a, i) => {
+            {articles.map((a) => {
               const cover = ARTICLE_COVERS[a.slug];
-              const radius = [
-                "rounded-3xl",
-                "rounded-[1.75rem]",
-                "rounded-tl-[2.25rem] rounded-tr-xl rounded-br-[2.25rem] rounded-bl-xl",
-              ][i % 3];
               return (
                 <Link
                   key={a.slug}
                   href={`/artikel/${a.slug}`}
-                  className={`group flex flex-col overflow-hidden bg-white shadow-sm ring-1 ring-bark-500/10 transition hover:-translate-y-1 hover:shadow-md ${radius}`}
+                  className="group flex flex-col overflow-hidden rounded-[1.25rem] bg-white shadow-sm ring-1 ring-bark-500/10 transition hover:-translate-y-1 hover:shadow-md"
                 >
                   {cover && (
                     <div className="relative h-44 w-full shrink-0 overflow-hidden">

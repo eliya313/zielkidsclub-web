@@ -237,10 +237,11 @@ export default function ProgramPage() {
       <section className="bg-sage-50 py-14">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
+            align="left"
             title="Regular Class"
             subtitle="Kelas rutin dengan ritme belajar yang konsisten. Pilih paket sesuai kebutuhan keluarga, dan kami akan memetakan kebutuhan anak dari sesi ke sesi."
           />
-          <div className="relative mt-10 overflow-hidden rounded-3xl shadow-sm ring-1 ring-bark-500/10">
+          <div className="relative mt-10 overflow-hidden rounded-[1.25rem] shadow-sm ring-1 ring-bark-500/10">
             <Image
               src="/illustrations/ilus-09.jpg"
               alt="Anak-anak bermain bersama dengan riang di kelas"
@@ -403,31 +404,33 @@ export default function ProgramPage() {
         </div>
       </section>
 
-      {/* 3. Grid 9 ranah observasi */}
+      {/* 3. Daftar 9 ranah observasi */}
       <section className="mx-auto max-w-6xl px-5 py-14">
         <SectionHeading
+          align="left"
           title="9 Ranah Observasi"
           subtitle="Di setiap program, kami mengamati dan memetakan kebutuhan anak pada sembilan ranah perkembangan. Hasil observasi menjadi dasar cara kami merespons, bukan label untuk anak."
         />
-        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {OBSERVATION_DOMAINS.map((domain) => (
-            <article
+        <ol className="mt-10 grid grid-cols-1 gap-x-12 sm:grid-cols-2 lg:grid-cols-3">
+          {OBSERVATION_DOMAINS.map((domain, i) => (
+            <li
               key={domain.key}
-              className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-bark-500/15 transition-shadow hover:shadow-md"
+              className="flex gap-4 border-t border-bark-500/20 py-5"
             >
-              <span
-                className="block h-2 w-10 rounded-full bg-sage-500"
-                aria-hidden="true"
-              />
-              <h3 className="mt-4 font-display text-lg font-bold text-bark-900">
-                {domain.label}
-              </h3>
-              <p className="mt-2 text-sm leading-relaxed text-bark-700">
-                {DOMAIN_NOTES[domain.key]}
-              </p>
-            </article>
+              <span className="font-display text-base font-bold text-terracotta-500">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <div>
+                <h3 className="font-display text-lg font-bold text-bark-900">
+                  {domain.label}
+                </h3>
+                <p className="mt-1.5 text-sm leading-relaxed text-bark-700">
+                  {DOMAIN_NOTES[domain.key]}
+                </p>
+              </div>
+            </li>
           ))}
-        </div>
+        </ol>
       </section>
 
       {/* 4. Prinsip */}
@@ -454,6 +457,7 @@ export default function ProgramPage() {
       {/* 4b. FAQ */}
       <section className="mx-auto max-w-4xl px-5 py-14">
         <SectionHeading
+          align="left"
           title="Pertanyaan yang sering ditanyakan"
           subtitle="Jawaban singkat untuk hal-hal yang paling sering ditanyakan orang tua."
         />
@@ -461,7 +465,7 @@ export default function ProgramPage() {
           {faqs.map((f) => (
             <details
               key={f.q}
-              className="group rounded-2xl bg-white p-5 shadow-sm ring-1 ring-bark-500/10"
+              className="group rounded-[1.25rem] bg-white p-5 shadow-sm ring-1 ring-bark-500/10"
             >
               <summary className="cursor-pointer font-bold text-bark-900 marker:text-terracotta-600">
                 {f.q}

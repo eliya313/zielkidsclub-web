@@ -62,7 +62,7 @@ export default function Header() {
             rel="noreferrer"
             className="ml-2 rounded-full bg-terracotta-500 px-4 py-2 text-sm font-bold text-white transition-transform hover:scale-[1.03] active:scale-[0.98]"
           >
-            Daftar Trial Class
+            Daftar Sekarang
           </a>
         </nav>
 
@@ -104,7 +104,7 @@ export default function Header() {
             rel="noreferrer"
             className="mt-2 block rounded-full bg-terracotta-500 px-4 py-2.5 text-center text-sm font-bold text-white"
           >
-            Daftar Trial Class
+            Daftar Sekarang
           </a>
         </nav>
       )}

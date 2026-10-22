@@ -34,7 +34,7 @@ export function SectionHeading({
       </h2>
       {subtitle && (
         <p
-          className={`mx-auto mt-3 max-w-[65ch] text-base leading-relaxed ${
+          className={`mt-3 max-w-[65ch] text-base leading-relaxed ${
             align === "center" ? "mx-auto" : ""
           } ${dark ? "text-cream-200" : "text-bark-700"}`}
         >
