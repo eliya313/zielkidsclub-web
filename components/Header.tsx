@@ -24,16 +24,14 @@ export default function Header() {
     <header className="sticky top-0 z-40 bg-bark-800 shadow-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 md:h-[72px]">
         <Link href="/" className="flex items-center gap-3" aria-label="Ziel Kids Club - Beranda">
-          <span className="inline-flex items-center rounded-full bg-cream-100 p-1.5">
-            <Image
-              src="/logo-zkc.png"
-              alt="Logo Ziel Kids Club"
-              width={40}
-              height={40}
-              className="h-10 w-10 object-contain"
-              priority
-            />
-          </span>
+          <Image
+            src="/logo-butterfly.png"
+            alt="Logo Ziel Kids Club"
+            width={405}
+            height={298}
+            className="h-10 w-auto md:h-11"
+            priority
+          />
           <span className="font-display text-xl font-bold text-cream-50">
             Ziel Kids Club
           </span>

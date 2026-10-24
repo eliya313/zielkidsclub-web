@@ -19,15 +19,13 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
-              <span className="inline-flex items-center rounded-full bg-cream-100 p-1.5">
-                <Image
-                  src="/logo-zkc.png"
-                  alt="Logo Ziel Kids Club"
-                  width={44}
-                  height={44}
-                  className="h-11 w-11 object-contain"
-                />
-              </span>
+              <Image
+                src="/logo-butterfly.png"
+                alt="Logo Ziel Kids Club"
+                width={405}
+                height={298}
+                className="h-11 w-auto"
+              />
               <div>
                 <p className="font-display text-lg font-bold text-cream-50">
                   Ziel Kids Club
